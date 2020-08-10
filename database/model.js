@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/custreviews');
+
 const reviewSchema = mongoose.Schema({
   reviewId: {
     type: Number,

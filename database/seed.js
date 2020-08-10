@@ -81,14 +81,11 @@ const generateProducts = function () {
 // })
 
 // TO DISPLAY ALL DATA
-// Product.find((err, repos) => {
+// Product.find((err, products) => {
 //   if(err) {
 //     console.log(err)
 //   } else {
-//     dbInfo = [];
-//     for (var i = 0; i < repos.length; i++){
-//       dbInfo.push(repos[i]._doc)
-//     }
-//     console.log('these are your docs: ', dbInfo)
+//     let dbLength = products.length;
+//     console.log('these are this many docs: ', dbLength)
 //   }
 // })
