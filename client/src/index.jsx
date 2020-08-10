@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
+import styles from './style.scss';
 
 class ReviewSection extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class ReviewSection extends React.Component {
 
   render() {
     return (
-      <div>Something</div>
+      <h2 className={styles.title}>Something with css</h2>
     )
   }
 
