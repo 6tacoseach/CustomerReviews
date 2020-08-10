@@ -21,6 +21,10 @@ class ReviewSection extends React.Component {
       .catch(console.log)
   }
 
+  componentDidMount() {
+    this.getProduct();
+  }
+
   render() {
     return (
       <div>Something</div>
