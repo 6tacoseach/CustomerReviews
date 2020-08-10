@@ -14,7 +14,10 @@ class ReviewSection extends React.Component {
   };
 
   getProduct() {
-    axios.get(`/product`)
+    let productId = window.location.pathname;
+    let id = productId.match(/(\d+)/)[0];
+    let path = `/data/${id}`
+    axios.get(path)
       .then((res) => {
         console.log(res.data),
         this.setState({product: res.data})})

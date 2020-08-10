@@ -4,15 +4,16 @@ const db = require('../database/model.js');
 
 const app = express();
 const PORT = 3004;
-const ENDPOINT = '/product';
+const ENDPOINT = '/product/:id';
 
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use(ENDPOINT, express.static(path.join(__dirname, '/../public')));
 
-app.use(express.json());
+app.use(ENDPOINT, express.json());
 
-app.get(ENDPOINT, (req, res) => {
-  console.log(`got a GET from ${ENDPOINT} in server`)
-  db.Product.find({productId: 1}, (err, product) => {
+app.get('/data/:id', (req, res) => {
+  console.log(`got a GET from ${req.params.id} in server`)
+  let productId = req.params.id;
+  db.Product.find({productId}, (err, product) => {
       if(err) {
         res.status(500).send(err);
       } else {
