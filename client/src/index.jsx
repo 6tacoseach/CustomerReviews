@@ -9,7 +9,7 @@ class ReviewSection extends React.Component {
       product: []
     };
 
-    this.getProduct = this.getProduct(this);
+    this.getProduct = this.getProduct.bind(this);
 
   };
 
@@ -20,10 +20,6 @@ class ReviewSection extends React.Component {
         this.setState({product: res.data})})
       .catch(console.log)
   }
-
-  // componentDidMount() {
-  //   this.getProduct()
-  // }
 
   render() {
     return (
