@@ -1,24 +1,24 @@
 const express = require('express');
 const path = require('path');
-const db = require('../database/index.js');
+const db = require('../database/model.js');
 
 const app = express();
 const PORT = 3004;
-const ENDPOINT = '/custreview';
+const ENDPOINT = '/product';
 
 app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use(express.json());
 
 app.get(ENDPOINT, (req, res) => {
-  console.log('got a GET in server')
-  db.Product.find((err, products) => {
+  console.log(`got a GET from ${ENDPOINT} in server`)
+  db.Product.find({productId: 1}, (err, product) => {
       if(err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send(products);
+        res.status(200).send(product);
       }
-      console.log(products[0].reviews[0]);
+      console.log(product);
     })
 });
 
