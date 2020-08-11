@@ -31,7 +31,9 @@ class ReviewSection extends React.Component {
 
   render() {
     return (
-      <h2 className={styles.title}>Something with css</h2>
+      <h2 className={styles.title}>
+        This is product
+      </h2>
     )
   }
 
