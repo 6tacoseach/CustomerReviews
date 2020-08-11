@@ -2,40 +2,51 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 import styles from './../style.scss';
-import Add from './ratings.jsx';
+import StarRating from './ratings.jsx';
 
 class ReviewSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: []
+      product: {},
+      rating: ''
     };
 
     this.getProduct = this.getProduct.bind(this);
+    this.getRating = this.getRating.bind(this);
 
   };
+
+  getRating() {
+    let reviewsArray = [...this.state.product.reviews];
+    let ratingsAdded = reviewsArray.reduce((acc, val) => {
+      return acc + val.rating}, 0);
+    console.log(ratingsAdded/reviewsArray.length);
+    return ratingsAdded;
+  }
 
   getProduct() {
     let productId = window.location.pathname;
     let id = productId.match(/(\d+)/)[0];
     let path = `/data/${id}`
     axios.get(path)
-      .then((res) => {
-        console.log(res.data),
-        this.setState({product: res.data})})
+      .then((res)=> {this.setState({product: res.data[0]})})
+      .then(() => {this.getRating()})
       .catch(console.log)
   }
 
   componentDidMount() {
-    this.getProduct();
+    this.getProduct()
   }
 
   render() {
     return (
       <div>
         <div className={styles.ratings}>
-          <h2 className={styles.title}>Ratings</h2>
-          <Add />
+          <h2 className={styles.title}>
+            Ratings
+            <StarRating reviews={this.state.product.reviews}/>
+          </h2>
         </div>
         <div className={styles.reviews}>
           <h2 className={styles.title}>Reviews</h2>
