@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 import styles from './../style.scss';
+import Add from './ratings.jsx';
 
 class ReviewSection extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class ReviewSection extends React.Component {
       <div>
         <div className={styles.ratings}>
           <h2 className={styles.title}>Ratings</h2>
+          <Add />
         </div>
         <div className={styles.reviews}>
           <h2 className={styles.title}>Reviews</h2>
