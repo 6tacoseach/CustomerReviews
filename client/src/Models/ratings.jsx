@@ -8,6 +8,7 @@ const StarRating = (props) => {
       <h2 className={styles.title}>
         {props.rating} out of 5
       </h2>
+      {props.totalReviews} customer ratings
     </div>
   )
 }
