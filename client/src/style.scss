@@ -1,0 +1,20 @@
+$tiltes: rgb(34, 59, 199);
+
+.title {
+  color: $tiltes;
+}
+
+.ratings {
+  width: 300px;
+  // margin-left: -300px;
+  // float: left;
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+  min-height: 1px;
+}
+
+.reviews {
+  display: inline-block;
+  // float: right;
+}
