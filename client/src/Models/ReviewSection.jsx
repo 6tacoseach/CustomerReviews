@@ -1,60 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect, useMountEffect } from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 import styles from './../style.scss';
 import StarRating from './ratings.jsx';
 
-class ReviewSection extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      product: {},
-      rating: ''
-    };
+const ReviewSection = () => {
+  const [product, setProduct] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [totalReviews, setTotalReviews] = useState(0);
+  const [rating, setRating] = useState(0);
 
-    this.getProduct = this.getProduct.bind(this);
-    this.getRating = this.getRating.bind(this);
-
-  };
-
-  getRating() {
-    let reviewsArray = [...this.state.product.reviews];
-    let ratingsAdded = reviewsArray.reduce((acc, val) => {
-      return acc + val.rating}, 0);
-    console.log(ratingsAdded/reviewsArray.length);
-    return ratingsAdded;
-  }
-
-  getProduct() {
+  let getProduct = () => {
     let productId = window.location.pathname;
     let id = productId.match(/(\d+)/)[0];
     let path = `/data/${id}`
     axios.get(path)
-      .then((res)=> {this.setState({product: res.data[0]})})
-      .then(() => {this.getRating()})
+      .then((res) => {
+        setReviews(res.data[0].reviews);
+        setProduct(res.data)
+        return res.data[0].reviews
+      })
+      .then((array) => {
+        let ratingsAdded = array.reduce((acc, val) => {
+          return acc + val.rating
+        }, 0);
+        let numOfReviews = array.length
+        setTotalReviews(numOfReviews);
+        let average = (ratingsAdded / numOfReviews).toFixed(1)
+        setRating(average);
+      })
       .catch(console.log)
-  }
+  };
 
-  componentDidMount() {
-    this.getProduct()
-  }
+  useEffect(() => { getProduct() }, [])
 
-  render() {
-    return (
-      <div>
-        <div className={styles.ratings}>
-          <h2 className={styles.title}>
-            Ratings
-            <StarRating reviews={this.state.product.reviews}/>
-          </h2>
-        </div>
-        <div className={styles.reviews}>
-          <h2 className={styles.title}>Reviews</h2>
-        </div>
+  return (
+    <div>
+      <div className={styles.ratings}>
+        <h2 className={styles.title}>
+          Ratings
+          <StarRating totalReviews={totalReviews} rating={rating} />
+        </h2>
       </div>
-    )
-  }
-
+      <div className={styles.reviews}>
+        <h2 className={styles.title}>Reviews</h2>
+      </div>
+    </div>
+  )
 }
 
 export default ReviewSection;
