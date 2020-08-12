@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './../style.scss';
+import PercentRating from './PercentRating.jsx'
 
 const StarRating = (props) => {
 
@@ -30,8 +31,8 @@ const StarRating = (props) => {
         </li>
       </ul>
       <ul>
-        {props.perStar.map(() => {
-
+        {props.perStar.map((x, i) => {
+          return <PercentRating percent={x.percent} i={1} />
         })}
       </ul>
     </div>

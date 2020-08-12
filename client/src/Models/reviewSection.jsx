@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useMountEffect } from 'react';
-import ReactDom from 'react-dom';
 import axios from 'axios';
 import styles from './../style.scss';
-import StarRating from './ratings.jsx';
+import StarRating from './StarRating.jsx';
 
 const ReviewSection = () => {
   const [product, setProduct] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
   const [rating, setRating] = useState(0);
-  const [reviewPerStar, setStarPercent] = useState([]);
+  const [starPercent, setStarPercent] = useState([]);
 
   let getProduct = () => {
     let productId = window.location.pathname;
@@ -36,7 +35,7 @@ const ReviewSection = () => {
         var total = array.length;
         for (let key in obj) {
           let percent = (obj[key] / total * 100).toFixed();
-          arr.push({ [key]: percent })
+          arr.push({ percent })
         }
         setStarPercent(arr)
       })
@@ -49,7 +48,7 @@ const ReviewSection = () => {
     <div>
       <div className={styles.ratings}>
         <div >
-          <StarRating total={totalReviews} rating={rating} perStar={reviewPerStar} />
+          <StarRating total={totalReviews} rating={rating} perStar={starPercent} />
         </div>
       </div>
       <div className={styles.reviews}>
