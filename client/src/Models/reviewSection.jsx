@@ -9,7 +9,7 @@ const ReviewSection = () => {
   const [reviews, setReviews] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
   const [rating, setRating] = useState(0);
-  const [reviewPerStar, setreviewPerStar] = useState([]);
+  const [reviewPerStar, setStarPercent] = useState([]);
 
   let getProduct = () => {
     let productId = window.location.pathname;
@@ -23,25 +23,22 @@ const ReviewSection = () => {
       })
       .then((array) => {
         let ratingsAdded = array.reduce((acc, val) => (acc + val.rating), 0);
-        let numOfReviews = array.length
+        let numOfReviews = array.length;
         setTotalReviews(numOfReviews);
         let average = (ratingsAdded / numOfReviews).toFixed(1)
         setRating(average);
         return array
       })
       .then((array) => {
-        // get each reating from each review
-        let obj = {};
-        array.forEach(review => {
-          let number = review.rating
-          if (obj[number]) {
-            obj[number]++
-          } else {
-            obj[number] = 1
-          }
-        })
-        console.log(obj)
-        // sort how many there are per rating
+        let obj = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+        array.forEach(x => (obj[x.rating]++))
+        let arr = [];
+        var total = array.length;
+        for (let key in obj) {
+          let percent = (obj[key] / total * 100).toFixed();
+          arr.push({ [key]: percent })
+        }
+        setStarPercent(arr)
       })
       .catch(console.log)
   };
@@ -52,7 +49,7 @@ const ReviewSection = () => {
     <div>
       <div className={styles.ratings}>
         <div >
-          <StarRating totalReviews={totalReviews} rating={rating} />
+          <StarRating total={totalReviews} rating={rating} perStar={reviewPerStar} />
         </div>
       </div>
       <div className={styles.reviews}>

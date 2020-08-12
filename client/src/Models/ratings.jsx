@@ -9,7 +9,31 @@ const StarRating = (props) => {
       <h2>
         {props.rating} out of 5
       </h2>
-      {props.totalReviews} customer ratings
+      <div>
+        {props.total} customer ratings
+      </div>
+      <ul>
+        <li>
+          5 star
+        </li>
+        <li>
+          4 star
+        </li>
+        <li>
+          3 star
+        </li>
+        <li>
+          2 star
+        </li>
+        <li>
+          1 star
+        </li>
+      </ul>
+      <ul>
+        {props.perStar.map(() => {
+
+        })}
+      </ul>
     </div>
   )
 }
