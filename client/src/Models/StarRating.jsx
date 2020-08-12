@@ -35,6 +35,11 @@ const StarRating = (props) => {
           return <PercentRating percent={x.percent} i={1} />
         })}
       </ul>
+      <div>
+        <h3>Review this product</h3>
+        <div>Share your thoughts with other customers</div>
+      </div>
+      <button>Write a customer review</button>
     </div>
   )
 }

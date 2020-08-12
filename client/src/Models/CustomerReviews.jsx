@@ -3,7 +3,7 @@ import axios from 'axios';
 import styles from './../style.scss';
 import StarRating from './StarRating.jsx';
 
-const ReviewSection = () => {
+const CustomerReviews = () => {
   const [product, setProduct] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
@@ -58,7 +58,7 @@ const ReviewSection = () => {
   )
 }
 
-export default ReviewSection;
+export default CustomerReviews;
 
 // SAMPLE PRODUCT DATA
 // product: {
