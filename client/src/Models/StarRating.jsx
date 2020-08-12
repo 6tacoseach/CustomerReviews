@@ -32,7 +32,7 @@ const StarRating = (props) => {
       </ul>
       <ul>
         {props.perStar.map((x, i) => {
-          return <PercentRating percent={x.percent} i={1} />
+          return <PercentRating percent={x.percent} i={i} />
         })}
       </ul>
       <div>

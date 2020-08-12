@@ -37,7 +37,7 @@ const CustomerReviews = () => {
           let percent = (obj[key] / total * 100).toFixed();
           arr.push({ percent })
         }
-        setStarPercent(arr)
+        setStarPercent(arr.reverse())
       })
       .catch(console.log)
   };
