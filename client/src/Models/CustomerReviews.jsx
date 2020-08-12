@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useMountEffect } from 'react';
-import ReactDom from 'react-dom';
 import axios from 'axios';
 import styles from './../style.scss';
-import StarRating from './ratings.jsx';
+import StarRating from './StarRating.jsx';
 
-const ReviewSection = () => {
+const CustomerReviews = () => {
   const [product, setProduct] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
   const [rating, setRating] = useState(0);
+  const [starPercent, setStarPercent] = useState([]);
 
   let getProduct = () => {
     let productId = window.location.pathname;
@@ -21,13 +21,23 @@ const ReviewSection = () => {
         return res.data[0].reviews
       })
       .then((array) => {
-        let ratingsAdded = array.reduce((acc, val) => {
-          return acc + val.rating
-        }, 0);
-        let numOfReviews = array.length
+        let ratingsAdded = array.reduce((acc, val) => (acc + val.rating), 0);
+        let numOfReviews = array.length;
         setTotalReviews(numOfReviews);
         let average = (ratingsAdded / numOfReviews).toFixed(1)
         setRating(average);
+        return array
+      })
+      .then((array) => {
+        let obj = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+        array.forEach(x => (obj[x.rating]++))
+        let arr = [];
+        var total = array.length;
+        for (let key in obj) {
+          let percent = (obj[key] / total * 100).toFixed();
+          arr.push({ percent })
+        }
+        setStarPercent(arr.reverse())
       })
       .catch(console.log)
   };
@@ -37,10 +47,9 @@ const ReviewSection = () => {
   return (
     <div>
       <div className={styles.ratings}>
-        <h2 className={styles.title}>
-          Ratings
-          <StarRating totalReviews={totalReviews} rating={rating} />
-        </h2>
+        <div >
+          <StarRating total={totalReviews} rating={rating} perStar={starPercent} />
+        </div>
       </div>
       <div className={styles.reviews}>
         <h2 className={styles.title}>Reviews</h2>
@@ -49,7 +58,7 @@ const ReviewSection = () => {
   )
 }
 
-export default ReviewSection;
+export default CustomerReviews;
 
 // SAMPLE PRODUCT DATA
 // product: {
