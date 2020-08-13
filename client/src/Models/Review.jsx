@@ -4,7 +4,6 @@ const Review = (props) => {
 
   return (
     <div>
-      {console.log('props in Review', props.review)}
       <div>{props.review.user.userName}</div>
       <div>{props.review.rating}</div>
       <div>{props.review.title}</div>

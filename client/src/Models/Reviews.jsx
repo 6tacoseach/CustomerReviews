@@ -5,8 +5,6 @@ const Reviews = (props) => {
 
   return (
     <div>
-      some reviews
-      {console.log('props in Reviews', props.reviews)}
       {props.reviews.map((review) => {
         return <Review review={review} key={review.reviewId} />
       })}

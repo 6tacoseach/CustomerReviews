@@ -56,8 +56,8 @@ const CustomerReviews = () => {
       </div>
       <div className={styles.reviews}>
         <h2 className={styles.title}>Reviews</h2>
-        <Reviews reviews={reviews} />
         <CustomerImages reviews={reviews} />
+        <Reviews reviews={reviews} />
       </div>
     </div>
   )
