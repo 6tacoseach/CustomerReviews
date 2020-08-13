@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMountEffect } from 'react';
 import axios from 'axios';
 import styles from './../style.scss';
 import StarRating from './StarRating.jsx';
+import Reviews from './Reviews.jsx'
 import CustomerImages from './CustomerImages.jsx';
 
 const CustomerReviews = () => {
@@ -54,6 +55,8 @@ const CustomerReviews = () => {
         </div>
       </div>
       <div className={styles.reviews}>
+        <h2 className={styles.title}>Reviews</h2>
+        <Reviews reviews={reviews} />
         <CustomerImages reviews={reviews} />
       </div>
     </div>
