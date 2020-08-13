@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMountEffect } from 'react';
 import axios from 'axios';
 import styles from './../style.scss';
 import StarRating from './StarRating.jsx';
+import Reviews from './Reviews.jsx'
 
 const CustomerReviews = () => {
   const [product, setProduct] = useState([]);
@@ -53,6 +54,7 @@ const CustomerReviews = () => {
       </div>
       <div className={styles.reviews}>
         <h2 className={styles.title}>Reviews</h2>
+        <Reviews reviews={reviews} />
       </div>
     </div>
   )
