@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {Review, Product} = require('./model.js');
+const { Review, Product } = require('./model.js');
 const Faker = require('faker');
 const catLinks = require('./catLinks.js');
 
@@ -13,7 +13,7 @@ const generateRandomCountry = () => {
 const generateArrayOfImages = () => {
   let random = Faker.random.number({ min: 0, max: 100 });
   let num = Faker.random.number({ min: 3, max: 6 });
-  return random >= 30 ? null : catLinks.getRandomLinks(num);
+  return random >= 30 ? [] : catLinks.getRandomLinks(num);
 };
 
 const generateNumOfClicks = () => {
@@ -23,7 +23,7 @@ const generateNumOfClicks = () => {
 
 const generateReviews = function () {
   let reviews = [];
-  let counter = Faker.random.number({min: 0, max: 100});
+  let counter = Faker.random.number({ min: 0, max: 100 });
   let start = 0;
   if (counter === start) {
     return [];
@@ -50,7 +50,7 @@ const generateReviews = function () {
 }
 
 const generateProducts = function () {
-  for (var i = 1; i <= 100 ; i++) {
+  for (var i = 1; i <= 100; i++) {
 
     let product = new Product({
       productId: i,
@@ -73,7 +73,7 @@ const generateProducts = function () {
 
 // TO CLEAR ALL DATA
 // Product.remove({}, (err) => {
-//   if(err) {
+//   if (err) {
 //     console.log(err)
 //   } else {
 //     console.log('files matching {} removed')
@@ -82,7 +82,7 @@ const generateProducts = function () {
 
 // TO DISPLAY ALL DATA
 // Product.find((err, products) => {
-//   if(err) {
+//   if (err) {
 //     console.log(err)
 //   } else {
 //     let dbLength = products.length;

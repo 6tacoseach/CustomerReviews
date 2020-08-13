@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from './../style.scss';
 import StarRating from './StarRating.jsx';
 import Reviews from './Reviews.jsx'
+import CustomerImages from './CustomerImages.jsx';
 
 const CustomerReviews = () => {
   const [product, setProduct] = useState([]);
@@ -35,8 +36,9 @@ const CustomerReviews = () => {
         let arr = [];
         var total = array.length;
         for (let key in obj) {
+          let rating = key
           let percent = (obj[key] / total * 100).toFixed();
-          arr.push({ percent })
+          arr.push({ rating, percent })
         }
         setStarPercent(arr.reverse())
       })
@@ -55,6 +57,7 @@ const CustomerReviews = () => {
       <div className={styles.reviews}>
         <h2 className={styles.title}>Reviews</h2>
         <Reviews reviews={reviews} />
+        <CustomerImages reviews={reviews} />
       </div>
     </div>
   )

@@ -13,26 +13,16 @@ const StarRating = (props) => {
       <div>
         {props.total} customer ratings
       </div>
-      <ul>
-        <li>
-          5 star
-        </li>
-        <li>
-          4 star
-        </li>
-        <li>
-          3 star
-        </li>
-        <li>
-          2 star
-        </li>
-        <li>
-          1 star
-        </li>
+      <ul className={styles.starPercent}>
+        <li>5 star</li>
+        <li>4 star</li>
+        <li>3 star</li>
+        <li>2 star</li>
+        <li>1 star</li>
       </ul>
-      <ul>
-        {props.perStar.map((x, i) => {
-          return <PercentRating percent={x.percent} i={i} />
+      <ul className={styles.starPercent}>
+        {props.perStar.map((x) => {
+          return <PercentRating percent={x.percent} key={x.rating} />
         })}
       </ul>
       <div>
