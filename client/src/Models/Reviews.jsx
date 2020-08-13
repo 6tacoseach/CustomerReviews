@@ -6,7 +6,10 @@ const Reviews = (props) => {
   return (
     <div>
       some reviews
-      <Review />
+      {console.log('props in Reviews', props.reviews)}
+      {props.reviews.map((review) => {
+        return <Review review={review} key={review.reviewId} />
+      })}
     </div>
   )
 
