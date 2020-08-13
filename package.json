@@ -13,7 +13,8 @@
     "start": "nodemon server/index.js",
     "react-server": "live-server --open=/public/index.html",
     "seed": "node database/seed.js",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage --colors"
   },
   "dependencies": {
     "@babel/core": "^7.11.1",
