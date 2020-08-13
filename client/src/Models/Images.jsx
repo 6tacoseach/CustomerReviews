@@ -1,4 +1,4 @@
-import React, { useSate, useEffect, useMountEffect } from 'react';
+import React, { useState, useEffect, useMountEffect } from 'react';
 import Image from './Image.jsx'
 
 const Images = (props) => {
