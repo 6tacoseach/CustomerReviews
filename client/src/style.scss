@@ -17,4 +17,19 @@ $tiltes: rgb(34, 59, 199);
 .reviews {
   display: inline-block;
   // float: right;
+  position: relative;
+  overflow: visible;
+  min-height: 1px;
+}
+
+.starPercent {
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+  min-height: 1px;
+}
+
+.topimages {
+  width: 140px;
+  height: 140px;
 }
