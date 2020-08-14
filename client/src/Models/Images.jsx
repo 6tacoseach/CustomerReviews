@@ -6,7 +6,7 @@ const Images = (props) => {
   return (
     <div>
       {props.images.map((image) => {
-        return <Image image={image} key={image.toString()} />
+        return <Image image={image} key={image.concat(Math.random()).toString()} />
       })}
     </div>
   )

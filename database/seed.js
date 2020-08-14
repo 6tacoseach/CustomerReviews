@@ -25,10 +25,12 @@ const generateReviews = function () {
   let reviews = [];
   let counter = Faker.random.number({ min: 0, max: 100 });
   let start = 0;
+  let dateFormat = { year: 'numeric', month: 'long', day: 'numeric' };
   if (counter === start) {
     return [];
   }
   while (start < counter) {
+    let dateInstance = Faker.date.past();
     reviews[start] = new Review({
       reviewId: start,
       user: {
@@ -38,7 +40,8 @@ const generateReviews = function () {
       },
       rating: Faker.random.number({ min: 1, max: 5 }),
       title: Faker.lorem.words(),
-      date: Faker.date.past(),
+      date: dateInstance,
+      dateString: dateInstance.toLocaleDateString("en-US", dateFormat),
       verifiedPurchase: true,
       text: Faker.lorem.paragraphs(),
       images: generateArrayOfImages(),

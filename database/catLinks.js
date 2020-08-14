@@ -24,8 +24,20 @@ module.exports = {
   getRandomLinks: (num) => {
     let arrayOfLinks = [];
     let count = num;
+    let selectUnique = (obj, index, array) => {
+      if (obj[index]) {
+        let newIndex = Faker.random.number({ min: 0, max: 15 });
+        selectUnique(obj, newIndex, array);
+      } else {
+        array.push(catLinks[index]);
+        obj[index] = index;
+        return
+      }
+    }
     while (count > 0) {
-      arrayOfLinks.push(catLinks[Faker.random.number({min: 0, max: 15})]);
+      let imagesInArray = {}
+      let imageIndex = Faker.random.number({ min: 0, max: 15 })
+      selectUnique(imagesInArray, imageIndex, arrayOfLinks);
       count--;
     }
     return arrayOfLinks;

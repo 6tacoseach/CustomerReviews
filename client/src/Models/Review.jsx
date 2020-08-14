@@ -8,7 +8,7 @@ const Review = (props) => {
       <div>{props.review.rating}</div>
       <div>{props.review.title}</div>
       <div>{props.review.user.location}</div>
-      <div>{props.review.date}</div>
+      <div>{props.review.dateString}</div>
       <div>{props.review.text}</div>
       <div>{props.review.helpfulClickCount}</div>
       <button>Helpful</button>

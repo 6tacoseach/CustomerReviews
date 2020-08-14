@@ -18,6 +18,7 @@ const reviewSchema = mongoose.Schema({
   rating: Number,
   title: String,
   date: Date,
+  dateString: String,
   verifiedPurchase: Boolean,
   text: String,
   images: Array,
