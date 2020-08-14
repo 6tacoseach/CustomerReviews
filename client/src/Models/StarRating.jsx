@@ -7,9 +7,7 @@ const StarRating = (props) => {
   return (
     <div>
       <h2> Customer reviews</h2>
-      <h2>
-        {props.rating} out of 5
-      </h2>
+      <h3>{props.rating} out of 5</h3>
       <div>
         {props.total} customer ratings
       </div>
@@ -27,7 +25,7 @@ const StarRating = (props) => {
       </ul>
       <div>
         <h3>Review this product</h3>
-        <div>Share your thoughts with other customers</div>
+        <h5>Share your thoughts with other customers</h5>
       </div>
       <button>Write a customer review</button>
     </div>

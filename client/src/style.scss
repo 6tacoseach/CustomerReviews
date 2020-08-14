@@ -1,5 +1,11 @@
 $tiltes: rgb(34, 59, 199);
 
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+
+}
+
 .title {
   color: $tiltes;
 }
@@ -27,7 +33,7 @@ $tiltes: rgb(34, 59, 199);
   display: inline-block;
   position: relative;
   overflow: visible;
-  min-height: 1px;
+  list-style-type: none;
 }
 
 .topimages {

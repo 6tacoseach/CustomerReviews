@@ -5,7 +5,7 @@ const CustomerImages = (props) => {
 
   return (
     <div>
-      <h2>Customer images</h2>
+      <h3>Customer images</h3>
       {props.reviews.map((review) => {
         return <Images images={review.images} key={review._id} />
       })}
