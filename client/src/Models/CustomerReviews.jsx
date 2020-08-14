@@ -57,6 +57,7 @@ const CustomerReviews = () => {
       <div className={styles.reviews}>
         <h2 className={styles.title}>Reviews</h2>
         <CustomerImages reviews={reviews} />
+        <h3>Read reviews that mention</h3>
         <Reviews reviews={reviews} />
       </div>
     </div>
