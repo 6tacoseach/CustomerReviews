@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMountEffect } from 'react';
-import styles from './../style.scss';
+import styles from './../styles/Stars.scss';
 
 const Stars = (props) => {
 

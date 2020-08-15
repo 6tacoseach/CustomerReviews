@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMountEffect } from 'react';
 import axios from 'axios';
-import styles from './../style.scss';
+import styles from './../styles/CustomerReviews.scss';
 import StarRating from './StarRating.jsx';
 import Reviews from './Reviews.jsx'
 import CustomerImages from './CustomerImages.jsx';

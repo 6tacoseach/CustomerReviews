@@ -1,0 +1,14 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.ratings {
+  max-width: 300px;
+  min-width: 300px;
+}
+
+.reviews {
+  max-width: 680px;
+  min-width: 580px;
+}

@@ -3,9 +3,11 @@ import Image from './Image.jsx'
 
 const Images = (props) => {
 
+  let fourImages = props.images.filter((image, index) => (index < 4));
+
   return (
     <div>
-      {props.images.map((image) => {
+      {fourImages.map((image) => {
         return <Image image={image} key={image.concat(Math.random()).toString()} />
       })}
     </div>

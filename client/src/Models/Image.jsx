@@ -1,5 +1,5 @@
 import React, { useSate, useEffect, useMountEffect } from 'react';
-import styles from './../style.scss';
+import styles from './../styles/Image.scss';
 
 const Image = (props) => {
   if (props.image) {

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useMountEffect } from 'react';
-import styles from './../style.scss';
 import PercentRating from './PercentRating.jsx';
 import Stars from './Stars.jsx';
-import stryles from './../style.scss'
+import styles from './../styles/StarRating.scss'
 
 const StarRating = (props) => {
 
