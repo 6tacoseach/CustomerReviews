@@ -2,41 +2,115 @@ $tiltes: rgb(34, 59, 199);
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 6fr;
-
-}
-
-.title {
-  color: $tiltes;
+  grid-template-columns: 1fr 2fr;
 }
 
 .ratings {
-  width: 300px;
-  // margin-left: -300px;
-  // float: left;
-  display: inline-block;
-  position: relative;
-  overflow: visible;
-  min-height: 1px;
+  max-width: 300px;
+  min-width: 300px;
 }
 
 .reviews {
-  display: inline-block;
-  // float: right;
-  position: relative;
-  overflow: visible;
-  width: 680px;
-  min-height: 1px;
+  max-width: 680px;
+  min-width: 580px;
 }
 
-.starPercent {
-  display: inline-block;
-  position: relative;
-  overflow: visible;
+// StarRating
+.star {
+  color: #f0cc00;
+  font-size: 20px;
+}
+
+.fivestar {
+  display: flex;
+  flex-direction: column;
+}
+
+.ratingsummery {
+  display: flex;
+  align-items: center;
+}
+
+.staraverage {
+  min-width: 120px;
+}
+
+.ratingaverage {
+  min-width: 100px;
+}
+
+.starbars {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.starPercentL {
   list-style-type: none;
+  flex: 01;
+  padding: 0px;
 }
 
+.starPercentC {
+  list-style-type: none;
+  flex: 04;
+  padding-left: 20px;
+}
+
+.starPercentR {
+  list-style-type: none;
+  flex: 01;
+}
+
+.bottomcomment {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.bottombutton {
+  justify-content: center;
+  max-width: 295px;
+  max-height: 30px;
+}
+
+// CUSTOMER IMAGES
 .topimages {
   width: 140px;
   height: 140px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 25px;
+}
+
+.userinfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.username {
+  display: flex;
+  max-width: 100px;
+}
+
+.smallerstar {
+  display: flex;
+  max-width: 100px;
+}
+
+.smallertitle {
+  display: flex;
+  max-width: 120px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.reviewimage {
+  width: 66px;
+  height: 88px;
 }

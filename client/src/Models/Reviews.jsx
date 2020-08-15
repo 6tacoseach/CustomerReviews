@@ -6,9 +6,12 @@ const Reviews = (props) => {
 
   return (
     <div>
-      {props.reviews.map((review) => {
-        return <Review review={review} key={review.reviewId} />
-      })}
+      <h3>Read reviews that mention</h3>
+      <div>
+        {props.reviews.map((review) => {
+          return <Review review={review} key={review.reviewId} />
+        })}
+      </div>
     </div>
   )
 

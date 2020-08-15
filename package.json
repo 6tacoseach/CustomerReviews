@@ -12,6 +12,8 @@
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "react-server": "live-server --open=/public/index.html",
+    "eslinter": "eslint '**/*.js' --ignore-pattern node_modules/",
+    "lint": "eslint --fix --ext .js,.jsx . --ignore-pattern bundle.js",
     "seed": "node database/seed.js",
     "test": "jest",
     "test:coverage": "jest --coverage --colors"

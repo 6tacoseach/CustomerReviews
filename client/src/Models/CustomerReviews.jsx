@@ -54,7 +54,6 @@ const CustomerReviews = () => {
       </div>
       <div className={styles.reviews}>
         <CustomerImages reviews={reviews} />
-        <h3>Read reviews that mention</h3>
         <Reviews reviews={reviews} />
       </div>
     </div>
