@@ -1,17 +1,19 @@
 .modal{
   display: flex;
-  // flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  background: greenyellow;
+  height: 55vh;
+  width: 55vw;
+  // z-index: 10;
 }
 
 .allimagesmodal {
   display: flex;
   flex-wrap: wrap;
   // flex-direction: column;
-  // justify-content: center;
+  justify-content: space-around;
   // align-items: center;
   background: white;
   // top: 30%;
@@ -20,14 +22,13 @@
   // max-height: 520px;
   height: 50vh;
   width: 50vw;
-  position: absolute;
+  // position: absolute;
   overflow: scroll;
   // overflow-y: initial;
-  // position: relative;
-  z-index: 999;
+  position: relative;
+  // z-index: 999;
 }
 
-// .closebutton {
-//   display: flex;
-//   // justify-content: left;
-// }
+.closebutton {
+  align-self: end;
+}

@@ -8,7 +8,7 @@ const Review = (props) => {
   return (
     <div className={styles.review}>
       <div className={styles.userinfo}>
-        <ion-icon name="person-circle" size="large"></ion-icon>
+        <ion-icon className={styles.ionicon} name="person-circle" size="large"></ion-icon>
         <div className={styles.username}>{props.review.user.userName}</div>
       </div>
       <div className={styles.reviewinfo}>
