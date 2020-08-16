@@ -1,4 +1,4 @@
-import React, { useSate, useEffect, useMountEffect } from 'react';
+import React, { useState, useEffect, useMountEffect } from 'react';
 import styles from './../styles/Image.scss';
 
 const Image = (props) => {

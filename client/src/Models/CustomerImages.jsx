@@ -1,16 +1,37 @@
-import React, { useSate, useEffect, useMountEffect } from 'react';
+import React, { useState, useEffect, useMountEffect } from 'react';
 import Images from './Images.jsx'
+import AllImagesModal from './AllImagesModal.jsx';
+import styles from './../styles/CustomerImages.scss';
 
 const CustomerImages = (props) => {
+  const [showModal, setShowModal] = useState(false);
+
+  let reviewsWithImages = props.reviews.filter(review => (review.images.length > 0));
+  let arraysWithImages = reviewsWithImages.map(review => review.images);
+  let allImagesArray = arraysWithImages.flat();
+
+  const handleCick = () => { setShowModal(!showModal) };
+
+  const showAllImgaes = showModal ? (
+    <div className={styles.modalbackground}>
+      <div>
+        <AllImagesModal images={allImagesArray} hideModal={handleCick} />
+      </div>
+    </div>
+  ) : null;
+
 
   return (
-    <div>
+    <div >
       <h3>Customer images</h3>
-      {props.reviews.map((review) => {
+      {/* {reviewsWithImages.map((review) => {
         return <Images images={review.images} key={review._id} />
-      })}
-      <div>
-        <a>See all customer images</a>
+      })} */}
+      <div >
+        <a className={styles.gallerylink} onClick={handleCick}>See all customer images</a>
+        <div>
+          {showAllImgaes}
+        </div>
       </div>
     </div>
   )
