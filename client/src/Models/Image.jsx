@@ -7,6 +7,11 @@ const Image = (props) => {
       <img src={props.image} className={styles.topimages}></img>
     )
   }
+  if (props.allimages) {
+    return (
+      <img src={props.allimages} className={styles.galleryimage}></img>
+    )
+  }
   if (props.reviewimage) {
     return (
       <img src={props.reviewimage} className={styles.reviewimage}></img>

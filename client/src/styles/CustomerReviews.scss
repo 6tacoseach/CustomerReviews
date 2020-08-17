@@ -1,6 +1,9 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-top-color: rgb(197, 197, 197);
 }
 
 .ratings {

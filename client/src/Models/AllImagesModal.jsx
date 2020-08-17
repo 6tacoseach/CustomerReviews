@@ -6,13 +6,17 @@ const AllImagesModal = (props) => {
 
   return (
     <div className={styles.modal}>
-      <div className={styles.closebutton}>
-        <button onClick={props.hideModal}>X</button>
+      <div className={styles.topbar}>
+        <div className={styles.closebuttondiv}>
+          <button onClick={props.hideModal} className={styles.buttonx}>x</button>
+        </div>
       </div>
-      <div className={styles.allimagesmodal}>
-        {props.images.map(image => {
-          return <Image image={image} key={Math.random().toString()} />
-        })}
+      <div className={styles.imagescontainer}>
+        <div className={styles.allimagesmodal}>
+          {props.images.map(image => {
+            return <Image allimages={image} key={Math.random().toString()} />
+          })}
+        </div>
       </div>
     </div>
   )

@@ -7,12 +7,14 @@ const StarRating = (props) => {
 
   return (
     <div className={styles.fivestar}>
-      <h2> Customer reviews</h2>
+      <div className={styles.title}> Customer reviews</div>
       <div className={styles.ratingsummery}>
         <div className={styles.staraverage}><Stars rating={props.rating} /></div>
         <div className={styles.ratingaverage}>{props.rating} out of 5</div>
       </div>
-      <div>{props.total} customer ratings</div>
+      <div className={styles.totalratings}>
+        {props.total} customer ratings
+      </div>
       <div className={styles.starbars}>
         <ul className={styles.starPercentL}>
           <li>5 star</li>

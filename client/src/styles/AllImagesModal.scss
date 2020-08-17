@@ -1,12 +1,46 @@
 .modal{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: greenyellow;
+  // justify-content: center;
+  // align-items: center;
+  background: white;
   height: 55vh;
-  width: 55vw;
+  width: 53vw;
   // z-index: 10;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 30px;
+  // margin-right: 5px;
+  background: rgb(239, 239, 239);
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: rgb(197, 197, 197);
+}
+
+.closebuttondiv {
+  display: flex;
+  // justify-content: flex-end;
+  // align-self: end;
+  margin-right: 5px;
+  height: 20px;
+  color: gray;
+}
+
+.buttonx {
+  border: none;
+  cursor: pointer;
+}
+
+.imagescontainer {
+  display: flex;
+  justify-content: center;
+  // align-items: end;
+  align-items: flex-end;
+  height: 570px;
 }
 
 .allimagesmodal {
@@ -27,8 +61,4 @@
   // overflow-y: initial;
   position: relative;
   // z-index: 999;
-}
-
-.closebutton {
-  align-self: end;
 }
