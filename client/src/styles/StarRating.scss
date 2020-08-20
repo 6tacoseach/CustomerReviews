@@ -68,3 +68,19 @@
   max-height: 30px;
   cursor: pointer;
 }
+
+.barbox {
+  background: rgb(239, 239, 239);
+  padding: 0px;
+  height: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgb(197, 197, 197);
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.barboxfill {
+  background: #f0cc00;
+  width: 25%;
+  height: 12px;
+}

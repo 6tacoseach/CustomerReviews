@@ -13,14 +13,14 @@ app.use(ENDPOINT, express.json());
 app.get('/data/:id', (req, res) => {
   console.log(`got a GET from ${req.params.id} in server`)
   let productId = req.params.id;
-  db.Product.find({productId}, (err, product) => {
-      if(err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(product);
-      }
-      console.log(product);
-    })
+  db.Product.find({ productId }, (err, product) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(product);
+    }
+    console.log(product);
+  })
 });
 
 app.listen(PORT, () => {

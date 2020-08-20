@@ -24,11 +24,21 @@ const StarRating = (props) => {
           <li>1 star</li>
         </ul>
         <ul className={styles.starPercentC}>
-          <li>bar bar bar</li>
-          <li>bar bar bar</li>
-          <li>bar bar bar</li>
-          <li>bar bar bar</li>
-          <li>bar bar bar</li>
+          <li className={styles.barbox}>
+            <div className={styles.barboxfill}></div>
+          </li>
+          <li className={styles.barbox}>
+            <div className={styles.barboxfill}></div>
+          </li>
+          <li className={styles.barbox}>
+            <div className={styles.barboxfill} ></div>
+          </li>
+          <li className={styles.barbox}>
+            <div className={styles.barboxfill}></div>
+          </li>
+          <li className={styles.barbox}>
+            <div className={styles.barboxfill} style={{ width: "50%" }}></div>
+          </li>
         </ul>
         <ul className={styles.starPercentR}>
           {props.perStar.map((x) => {
