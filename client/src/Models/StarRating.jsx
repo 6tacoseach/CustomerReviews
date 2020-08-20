@@ -16,39 +16,15 @@ const StarRating = (props) => {
         {props.total} customer ratings
       </div>
       <div className={styles.starbars}>
-        <ul className={styles.starPercentL}>
-          <li>5 star</li>
-          <li>4 star</li>
-          <li>3 star</li>
-          <li>2 star</li>
-          <li>1 star</li>
-        </ul>
-        <ul className={styles.starPercentC}>
-          <li className={styles.barbox}>
-            <div className={styles.barboxfill}></div>
-          </li>
-          <li className={styles.barbox}>
-            <div className={styles.barboxfill}></div>
-          </li>
-          <li className={styles.barbox}>
-            <div className={styles.barboxfill} ></div>
-          </li>
-          <li className={styles.barbox}>
-            <div className={styles.barboxfill}></div>
-          </li>
-          <li className={styles.barbox}>
-            <div className={styles.barboxfill} style={{ width: "50%" }}></div>
-          </li>
-        </ul>
-        <ul className={styles.starPercentR}>
+        <div >
           {props.perStar.map((x) => {
-            return <PercentRating percent={x.percent} key={x.rating} />
+            return <PercentRating percent={x.percent} stars={x.rating} key={x.rating} />
           })}
-        </ul>
+        </div>
       </div>
       <div className={styles.bottomcomment}>
-        <h3>Review this product</h3>
-        <h5>Share your thoughts with other customers</h5>
+        <div className={styles.reviewproduct}>Review this product</div>
+        <div className={styles.sharethoughts}>Share your thoughts with other customers</div>
         <button className={styles.bottombutton}>Write a customer review</button>
       </div>
     </div>
