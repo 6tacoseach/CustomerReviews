@@ -1,9 +1,10 @@
+console.log('got to database seed.js')
 const mongoose = require('mongoose');
 const { Review, Product } = require('./model.js');
 const Faker = require('faker');
 const catLinks = require('./catLinks.js');
 
-mongoose.connect('mongodb://localhost/custreviews');
+mongoose.connect('mongodb://database/custreviews');
 
 const generateRandomCountry = () => {
   let num = Faker.random.number({ min: 0, max: 40 });
@@ -72,7 +73,7 @@ const generateProducts = function () {
 }
 
 // TO SEED DATA
-// generateProducts();
+generateProducts();
 
 // TO CLEAR ALL DATA
 // Product.remove({}, (err) => {

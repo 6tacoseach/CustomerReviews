@@ -29,6 +29,7 @@
     "faker": "^4.1.0",
     "live-server": "^1.2.1",
     "mongoose": "^5.9.27",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "webpack": "^4.44.1"

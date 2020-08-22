@@ -1,6 +1,7 @@
+console.log('got to database model.js')
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/custreviews');
+mongoose.connect('mongodb://database/custreviews');
 
 const reviewSchema = mongoose.Schema({
   reviewId: {

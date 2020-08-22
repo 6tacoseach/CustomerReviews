@@ -1,3 +1,4 @@
+console.log('got to database index.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/custreviews');
+mongoose.connect('mongodb://database/custreviews');
