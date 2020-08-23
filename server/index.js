@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
+const compression = require('compression');
 const db = require('../database/model.js');
 
 const app = express();
 const PORT = 3004;
 const ENDPOINT = '/product/:id';
+
+app.use(compression());
 
 app.use(ENDPOINT, express.static(path.join(__dirname, '/../public')));
 
