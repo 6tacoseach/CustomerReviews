@@ -4,6 +4,19 @@ import styles from './../styles/Review.scss';
 import Image from './Image.jsx';
 
 const Review = (props) => {
+  const [helpfulCount, setHelpfulCount] = useState(props.review.helpfulClickCount);
+  const [clickToggle, setClickToggle] = useState(false);
+
+  const upVote = () => { setClickToggle(!clickToggle) };
+
+  const message = <div className={styles.thankyou}>Thank you for your feedback.</div>;
+  const helpfulbutton =
+    <button className={styles.helpfulbuttons} onClick={() => {
+      upVote(); setHelpfulCount(helpfulCount + 1)
+    }}>
+      Helpful
+    </button>
+  const helpfulClicker = clickToggle ? message : helpfulbutton;
 
   return (
     <div className={styles.review}>
@@ -27,9 +40,9 @@ const Review = (props) => {
           return <Image reviewimage={image} key={image.concat(Math.random()).toString()} />
         })}
       </div>
-      <div className={styles.reviewinfo3}>{props.review.helpfulClickCount} people found this Helpful</div>
+      <div className={styles.reviewinfo3}>{helpfulCount} people found this Helpful</div>
       <div className={styles.reviewbuttons}>
-        <button className={styles.helpfulbuttons}>Helpful</button>
+        {helpfulClicker}
         <div className={styles.buttonseparator}>|</div>
         <button className={styles.nobackreviewbuttons}>Comment</button>
         <div className={styles.buttonseparator}>|</div>

@@ -1,2 +1,8 @@
 node_modules
 npm-debug.log
+.vscode
+client
+test
+.babelrc
+.eslintrc.js
+webpack.config.js
