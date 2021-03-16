@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMountEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './../styles/CustomerReviews.scss';
 import StarRating from './StarRating.jsx';
@@ -15,37 +15,37 @@ const CustomerReviews = () => {
   let getProduct = () => {
     let productId = window.location.pathname;
     let id = productId.match(/(\d+)/)[0];
-    let path = `/data/${id}`
+    let path = `/data/${id}`;
     axios.get(path)
       .then((res) => {
         setReviews(res.data[0].reviews);
-        setProduct(res.data)
-        return res.data[0].reviews
+        setProduct(res.data);
+        return res.data[0].reviews;
       })
       .then((array) => {
         let ratingsAdded = array.reduce((acc, val) => (acc + val.rating), 0);
         let numOfReviews = array.length;
         setTotalReviews(numOfReviews);
-        let average = (ratingsAdded / numOfReviews).toFixed(1)
+        let average = (ratingsAdded / numOfReviews).toFixed(1);
         setRating(average);
-        return array
+        return array;
       })
       .then((array) => {
         let obj = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-        array.forEach(x => (obj[x.rating]++))
+        array.forEach(x => (obj[x.rating]++));
         let arr = [];
         var total = array.length;
         for (let key in obj) {
-          let rating = key
+          let rating = key;
           let percent = (obj[key] / total * 100).toFixed();
-          arr.push({ rating, percent })
-        }
-        setStarPercent(arr.reverse())
+          arr.push({ rating, percent });
+        };
+        setStarPercent(arr.reverse());
       })
-      .catch(console.log)
+      .catch(console.error);
   };
 
-  useEffect(() => { getProduct() }, [])
+  useEffect(() => { getProduct() }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -57,8 +57,8 @@ const CustomerReviews = () => {
         <Reviews reviews={reviews} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CustomerReviews;
 
