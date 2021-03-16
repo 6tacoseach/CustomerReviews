@@ -64,23 +64,23 @@ export default CustomerReviews;
 
 // SAMPLE PRODUCT DATA
 // product: {
-//   productId: 1,
-//   keyWords: [],
+//   productId: Number,
+//   keyWords: Array of String,
 //   reviews: [
 //     {
-//       reviewId: 1,
+//       reviewId: Number,
 //       user: {
-//         id: 1,
-//         userName: 'mike1212',
-//         location: 'United States'
-//       },
-//       rating: 3,
-//       title: 'not so bad',
-//       date: "2019-08-13T17:51:35.537Z",
-//       verifiedPurchase: true,
+//         id: Number,
+//         userName: String,
+//         location: String,
+//         },
+//       rating: Number,
+//       title: String,
+//       date: Date Object,
+//       verifiedPurchase: Boolean,
 //       text: String,
-//       images: [],
-//       helpfulClickCount: 18
-//     }
-//   ]
+//       images: Array of image links,
+//       helpfulClickCount: Number
+//     },
+//   ],
 // }
